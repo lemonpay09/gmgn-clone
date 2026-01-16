@@ -1,0 +1,26 @@
+[
+  {
+    "id": "trader-1",
+    "name": "CryptoKing",
+    "avatarUrl": "https://i.pravatar.cc/150?u=trader1",
+    "roi": 125.5,
+    "followers": 1200,
+    "winRate": 78
+  },
+  {
+    "id": "trader-2",
+    "name": "ETHGod",
+    "avatarUrl": "https://i.pravatar.cc/150?u=trader2",
+    "roi": 98.2,
+    "followers": 850,
+    "winRate": 85
+  },
+  {
+    "id": "trader-3",
+    "name": "AltcoinQueen",
+    "avatarUrl": "https://i.pravatar.cc/150?u=trader3",
+    "roi": 250.0,
+    "followers": 2500,
+    "winRate": 65
+  }
+]

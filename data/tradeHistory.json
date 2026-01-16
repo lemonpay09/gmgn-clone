@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "pair": "BTC/USDT",
+    "side": "BUY",
+    "price": 68000,
+    "amount": 0.1,
+    "timestamp": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "2",
+    "pair": "ETH/USDT",
+    "side": "SELL",
+    "price": 2550,
+    "amount": 5,
+    "timestamp": "2026-01-15T12:30:00Z"
+  },
+  {
+    "id": "3",
+    "pair": "BTC/USDT",
+    "side": "BUY",
+    "price": 69500,
+    "amount": 0.2,
+    "timestamp": "2026-01-16T09:00:00Z"
+  }
+]
