@@ -35,6 +35,7 @@ export function TradePanel({ pair, price: currentPrice }: TradePanelProps) {
   const [limitPrice, setLimitPrice] = useState(''); // 用于限价单的价格输入
   const [amount, setAmount] = useState(''); // 数量输入
   const [isLoading, setIsLoading] = useState(false);
+  const [formError, setFormError] = useState('');
 
   const baseCurrency = pair.split('/')[0];
   const quoteCurrency = pair.split('/')[1];
@@ -58,7 +59,9 @@ export function TradePanel({ pair, price: currentPrice }: TradePanelProps) {
     }
 
     // 验证输入
+    setFormError('');
     if (!amount || parseFloat(amount) <= 0) {
+      setFormError('请输入有效的数量');
       toast.error("请输入有效的数量");
       return;
     }
@@ -85,6 +88,14 @@ export function TradePanel({ pair, price: currentPrice }: TradePanelProps) {
     }
     const tradeCost = finalPrice * parsedAmount;
 
+    // 显性确认：当买入金额超过 50000 USDT 时要求二次确认
+    if (side === 'buy' && tradeCost > 50000) {
+      const confirmed = window.confirm(
+        `您即将发起金额 ${tradeCost.toLocaleString()} USDT 的高额买入，是否确认下单？\n\n数量: ${parsedAmount} ${baseCurrency}\n价格: $${finalPrice.toFixed(2)}`
+      );
+      if (!confirmed) return;
+    }
+
     if (side === 'buy') {
       if (account.balance < tradeCost) {
         toast.error(`余额不足。需要 $${tradeCost.toFixed(2)} USDT，当前余额 $${account.balance.toFixed(2)} USDT`);
@@ -100,6 +111,7 @@ export function TradePanel({ pair, price: currentPrice }: TradePanelProps) {
 
     setIsLoading(true);
     try {
+      setFormError('');
       const orderDetails = {
         pair,
         side: side as 'buy' | 'sell',
@@ -163,12 +175,17 @@ export function TradePanel({ pair, price: currentPrice }: TradePanelProps) {
           description: `数量: ${amount} ${baseCurrency}, 价格: $${finalPrice?.toFixed(2) || 'N/A'}`
         }
       );
+      // 成功后刷新或更新账户数据已在上面执行（updateBalance/updateHoldings/addTradeHistory）
+      // 清理表单错误
+      setFormError('');
       setLimitPrice('');
       setAmount('');
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('Order submission error:', error);
-      toast.error("下单失败，请稍后再试");
+      const msg = (error && error.message) ? error.message : '下单失败，请稍后再试';
+      setFormError(msg);
+      toast.error('下单失败：' + msg);
     } finally {
       setIsLoading(false);
     }
@@ -190,6 +207,10 @@ export function TradePanel({ pair, price: currentPrice }: TradePanelProps) {
         <TabsTrigger value="sell">卖出</TabsTrigger>
       </TabsList>
       <div className="p-4 space-y-4 border rounded-b-md">
+        {/* 风险提示横幅 */}
+        <div className="p-3 rounded bg-yellow-50 border border-yellow-200 text-sm text-yellow-800">
+          风险提示：本系统为模拟交易环境，请谨慎操作。
+        </div>
         {/* 市价/限价切换开关 */}
         <div className="flex items-center justify-between">
           <span className="text-sm font-medium">订单类型</span>
@@ -249,6 +270,10 @@ export function TradePanel({ pair, price: currentPrice }: TradePanelProps) {
             onChange={e => setAmount(e.target.value)}
             step="0.0001"
           />
+
+          {formError && (
+            <p className="text-sm text-destructive mt-2">{formError}</p>
+          )}
 
           {side === 'sell' && (
             <div className="flex gap-2 mt-2">

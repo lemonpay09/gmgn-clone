@@ -33,7 +33,7 @@ export function Header() {
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Coins className="h-6 w-6" />
             <span className="hidden font-bold sm:inline-block">
-              GMGN Clone
+              ZYZS
             </span>
           </Link>
 
@@ -73,10 +73,6 @@ export function Header() {
                 <DropdownMenuContent align="end">
                   <DropdownMenuLabel>{user?.name}</DropdownMenuLabel>
                   <DropdownMenuLabel className="text-xs text-muted-foreground font-normal">{user?.email}</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>个人中心</DropdownMenuItem>
-                  <DropdownMenuItem>设置</DropdownMenuItem>
-
                   <DropdownMenuSeparator />
                   <DropdownMenuLabel className="flex items-center">
                     <Users className="mr-2 h-4 w-4" />
@@ -126,9 +122,9 @@ export function Header() {
           <div className="absolute inset-0 bg-black/40" onClick={() => setIsMobileMenuOpen(false)} />
           <div className="absolute left-0 top-0 bottom-0 w-72 bg-background p-6 shadow-lg overflow-auto">
             <div className="flex items-center justify-between mb-6">
-              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2">
+                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2">
                 <Coins className="h-6 w-6" />
-                <span className="font-bold">GMGN Clone</span>
+                <span className="font-bold">ZYZS</span>
               </Link>
               <Button variant="ghost" onClick={() => setIsMobileMenuOpen(false)}>关闭</Button>
             </div>

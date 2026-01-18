@@ -13,8 +13,8 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "GMGN.AI Clone",
-  description: "A clone of GMGN.AI for an interview assignment",
+  title: "ZYZS",
+  description: "A clone of ZYZS for an interview assignment",
 };
 
 export default function RootLayout({

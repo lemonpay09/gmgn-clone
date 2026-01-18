@@ -65,7 +65,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
             <Card>
               <CardHeader>
                 <CardTitle>登录</CardTitle>
-                <CardDescription>进入您的 GMGN Clone 账户。</CardDescription>
+                <CardDescription>进入您的 ZYZS 账户。</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleLogin}>

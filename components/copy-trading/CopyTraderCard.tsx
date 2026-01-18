@@ -73,6 +73,10 @@ export function CopyTraderCard({ trader }: CopyTraderCardProps) {
               <DialogHeader>
                 <DialogTitle>跟单 {trader.name}</DialogTitle>
                 <p className="text-sm text-muted-foreground">输入您希望用于跟随该交易员的金额。</p>
+                <div className="mt-3 p-3 rounded bg-yellow-50 border border-yellow-200 text-sm text-yellow-800">
+                  风险提示：本系统为模拟交易环境，请谨慎操作。<br />
+                  注意：当前为意向记录，确认后系统仅保存跟单意向，<strong>不会</strong>为您自动下单。
+                </div>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid grid-cols-4 items-center gap-4">
