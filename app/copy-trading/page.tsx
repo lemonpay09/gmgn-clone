@@ -27,7 +27,7 @@ export default function CopyTradingPage() {
       <p className="text-muted-foreground mb-8">
         选择一位顶尖交易员，一键复制他们的交易策略。
       </p>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {traders.map((trader) => (
           <CopyTraderCard key={trader.id} trader={trader} />
         ))}

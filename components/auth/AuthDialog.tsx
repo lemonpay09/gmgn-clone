@@ -32,7 +32,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     setError("");
     try {
       const response = await axios.post<User>("/api/auth/login", { email, password });
-      login(response.data);
+      await login(response.data);
       onOpenChange(false); // 登录成功后关闭弹窗
     } catch (err) {
       setError("登录失败，请检查您的凭据。");

@@ -8,6 +8,15 @@ export interface User {
   avatarUrl?: string;
 }
 
+export interface UserAccount {
+  userId: string;
+  balance: number; // 账户余额（USDT），初始10w
+  holdings: { [symbol: string]: number }; // 持仓信息，例如 { 'BTC': 0.5, 'ETH': 2 }
+  tradeHistory: TradeHistory[];
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface WalletAsset {
   id: string; // 例如: 'bitcoin'
   symbol: string; // 例如: 'BTC'
@@ -41,4 +50,34 @@ export interface KlineData {
   high: number;
   low: number;
   close: number;
+}
+
+export type OrderStatus = 'PENDING' | 'FILLED' | 'CANCELLED';
+
+export interface Order {
+  id: string;
+  pair: string;
+  side: 'buy' | 'sell';
+  orderType: 'market' | 'limit';
+  price: number;
+  amount: number;
+  status: OrderStatus;
+  timestamp: string;
+}
+
+export interface Following {
+  traderId: string;
+  traderName: string;
+  amount: number;
+  startDate: string;
+}
+
+export interface MarketToken {
+  symbol: string; // "BTCUSDT"
+  priceChangePercent: string; // "1.23"
+  lastPrice: string; // "70123.45"
+  highPrice: string;
+  lowPrice: string;
+  volume: string; // 24h 成交量（币）
+  quoteVolume: string; // 24h 成交额（USDT）
 }

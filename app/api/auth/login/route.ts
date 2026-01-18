@@ -13,11 +13,14 @@ export async function POST(request: Request) {
     );
   }
 
-  // 模拟成功登录，返回一个固定的用户信息
+  // 根据 email 生成唯一的用户 ID
+  const userId = `user-${btoa(email).replace(/[^a-zA-Z0-9]/g, '')}`;
+  
+  // 模拟成功登录，返回一个用户信息
   const mockUser = {
-    id: "user-123",
+    id: userId,
     email: email,
-    name: "虚拟用户",
+    name: email.split('@')[0],
     avatarUrl: `https://i.pravatar.cc/150?u=${email}`,
   };
 
