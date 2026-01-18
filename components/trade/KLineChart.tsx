@@ -96,18 +96,17 @@ export function KLineChart({ pair }: KLineChartProps) {
         let width = container.clientWidth;
         let height = container.clientHeight;
         
-        // 如果容器还没有尺寸，则重试（最多10次）
         if (width === 0 || height === 0) {
           if (attempt < 10) {
             console.log(`KLineChart: Container not ready (${attempt + 1}/10), retrying in 100ms`);
             await new Promise(resolve => setTimeout(resolve, 100));
             return initChart(attempt + 1);
           } else {
-            // 最后的尝试，强制使用一个合理的默认大小
+            // 强制使用一个合理的默认大小
             width = 800;
             height = 400;
             console.warn('KLineChart: Container size could not be determined after retries, using defaults');
-            // 再等等，可能容器正在渲染中
+            // 可能容器正在渲染中
             await new Promise(resolve => setTimeout(resolve, 200));
             width = Math.max(container.clientWidth, 800);
             height = Math.max(container.clientHeight, 400);
@@ -118,7 +117,7 @@ export function KLineChart({ pair }: KLineChartProps) {
         if (chartRef.current) {
           console.log('KLineChart: removing old chart');
           try {
-            // lightweight-charts 需要显式调用 remove 方法来清理 DOM
+            // 显式调用 remove 方法来清理 DOM
             chartRef.current.remove();
           } catch (e) {
             console.error('Error removing old chart:', e);
@@ -129,7 +128,7 @@ export function KLineChart({ pair }: KLineChartProps) {
         // 清空容器
         container.innerHTML = '';
 
-        // 1. 动态导入库（兼容 SSR）
+        // 1. 动态导入库
         console.log('KLineChart: importing lightweight-charts');
         const LightweightCharts = await import('lightweight-charts');
         const { createChart, CandlestickSeries } = LightweightCharts;

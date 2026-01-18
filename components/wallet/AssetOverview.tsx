@@ -8,12 +8,16 @@ import { WalletAsset } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
-// 模拟币种信息
+// 币种信息
 const COIN_INFO: { [symbol: string]: { name: string; imageUrl: string } } = {
   'BTC': { name: 'Bitcoin', imageUrl: '/tokens/btc.png' },
   'ETH': { name: 'Ethereum', imageUrl: '/tokens/eth.png' },
   'SOL': { name: 'Solana', imageUrl: '/tokens/sol.png' },
   'USDT': { name: 'Tether', imageUrl: '/tokens/usdt.png' },
+  'XRP': { name: 'Ripple', imageUrl: '/tokens/xrp.png' },
+  'ADA': { name: 'Cardano', imageUrl: '/tokens/ada.png' },
+  'BNB': { name: 'Binance Coin', imageUrl: '/tokens/bnb.png' },
+  'DOGE': { name: 'Dogecoin', imageUrl: '/tokens/doge.png' },
 };
 
 export function AssetOverview() {

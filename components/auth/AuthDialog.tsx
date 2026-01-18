@@ -43,7 +43,6 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
-    // 在这个作业中，我们让注册也直接调用登录，模拟一个简化流程
     handleLogin(e);
   };
 
@@ -95,7 +94,6 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleRegister}>
-                   {/* 注册表单可以添加更多字段，这里我们简化处理 */}
                    <div className="grid gap-4">
                     <div className="grid gap-2">
                       <Label htmlFor="reg-email">邮箱</Label>

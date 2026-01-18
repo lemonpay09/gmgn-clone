@@ -29,7 +29,6 @@ export function Header() {
     <>
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center">
-          {/* Logo and Site Name */}
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Coins className="h-6 w-6" />
             <span className="hidden font-bold sm:inline-block">
@@ -37,7 +36,6 @@ export function Header() {
             </span>
           </Link>
 
-          {/* Main Navigation - hidden on small screens */}
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <Link href="/market" className="text-foreground/60 transition-colors hover:text-foreground/80">
               市场
@@ -55,7 +53,6 @@ export function Header() {
             )}
           </nav>
 
-          {/* Right side Actions */}
           <div className="flex flex-1 items-center justify-end space-x-4">
             {isAuthenticated && account && (
               <div className="text-sm text-muted-foreground">
@@ -103,7 +100,6 @@ export function Header() {
               </div>
             )}
 
-            {/* Mobile hamburger */}
             <div className="md:hidden">
               <Button variant="ghost" onClick={() => setIsMobileMenuOpen(true)}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -116,7 +112,6 @@ export function Header() {
       </header>
       <AuthDialog open={isAuthDialogOpen} onOpenChange={setIsAuthDialogOpen} />
 
-      {/* Mobile slide-over menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50">
           <div className="absolute inset-0 bg-black/40" onClick={() => setIsMobileMenuOpen(false)} />

@@ -7,6 +7,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useOrders } from "@/context/OrderContext";
 import { Order } from "@/lib/types";
 import { toast } from "sonner";
+export const dynamic = "force-dynamic";
 
 import {
   ResizableHandle,

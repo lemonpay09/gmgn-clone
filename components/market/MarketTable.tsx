@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/table";
 import { useRouter } from 'next/navigation';
 
-// 我们关心的交易对列表
+// 交易对列表
 const SYMBOLS_TO_FETCH = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT"];
 
 export function MarketTable() {
@@ -24,7 +24,6 @@ export function MarketTable() {
 
   useEffect(() => {
     const fetchMarketData = async () => {
-      // abort previous fetch if any
       if (controllerRef.current) controllerRef.current.abort();
       const controller = new AbortController();
       controllerRef.current = controller;
