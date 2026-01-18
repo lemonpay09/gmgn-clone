@@ -5,7 +5,7 @@ export async function POST(request: Request) {
   const body = await request.json();
   const { email, password } = body;
 
-  // 模拟验证：只要 email 和 password 不为空即可
+  //  email 和 password 不为空即可
   if (!email || !password) {
     return NextResponse.json(
       { message: "邮箱或密码不能为空" },
@@ -16,7 +16,6 @@ export async function POST(request: Request) {
   // 根据 email 生成唯一的用户 ID
   const userId = `user-${btoa(email).replace(/[^a-zA-Z0-9]/g, '')}`;
   
-  // 模拟成功登录，返回一个用户信息
   const mockUser = {
     id: userId,
     email: email,
