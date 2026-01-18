@@ -1,4 +1,5 @@
 // src/lib/types.ts
+import { Time } from "lightweight-charts";
 
 export interface User {
   id: string;
@@ -35,7 +36,7 @@ export interface CopyTrader {
 }
 
 export interface KlineData {
-  time: number; // Unix 时间戳
+  time: Time; // Unix 时间戳
   open: number;
   high: number;
   low: number;

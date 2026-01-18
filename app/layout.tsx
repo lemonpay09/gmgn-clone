@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/Header";
+import { AuthProvider } from "@/context/AuthContext";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -25,10 +27,13 @@ export default function RootLayout({
           inter.variable
         )}
       >
+        <AuthProvider>
         <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
         </div>
+        <Toaster />
+        </AuthProvider>
       </body>
     </html>
   );
