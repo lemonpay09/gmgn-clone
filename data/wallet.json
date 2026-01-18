@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bitcoin",
+    "symbol": "BTC",
+    "name": "Bitcoin",
+    "amount": 0.5,
+    "valueUSD": 35000,
+    "imageUrl": "/tokens/btc.png"
+  },
+  {
+    "id": "ethereum",
+    "symbol": "ETH",
+    "name": "Ethereum",
+    "amount": 10,
+    "valueUSD": 25000,
+    "imageUrl": "/tokens/eth.png"
+  },
+  {
+    "id": "tether",
+    "symbol": "USDT",
+    "name": "Tether",
+    "amount": 10000,
+    "valueUSD": 10000,
+    "imageUrl": "/tokens/usdt.png"
+  }
+]
